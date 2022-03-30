@@ -1,0 +1,17 @@
+<%= form_for ([@usuario, @livro]) do |f| %>
+  <h3> Editar livro </h3>
+  <p>
+    <%= f.label 'Titulo' %><br>
+    <%= f.text_field :nome %>
+  </p>
+
+  <p>
+    <%= f.label :Autor %><br>
+    <%= f.text_field :autor %>
+  </p>
+
+  <p>
+    <%= f.submit 'Enviar' %>
+  </p>
+
+<% end %>

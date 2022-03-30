@@ -1,0 +1,35 @@
+<div class="perfil">
+<h2>Perfil de: <%= @usuario.nome%></h2>
+<%= link_to 'Editar perfil', edit_usuario_path %>
+<br>
+<br>
+</div>
+
+<div class= "lista-leituras">
+  <h2 >Lista de Leituras</h2><br>
+  <%= render @usuario.livros=%> <br>
+</div>
+
+<div class= "novo-livro">
+  <p>Adicione um novo livro<p><br>
+  <%= form_for ([@usuario, @usuario.livros.create]) do |f| %>
+
+    <p>
+      <%= f.label 'Titulo' %>
+      <%= f.text_field :nome %>
+    </p>
+
+    <p>
+      <%= f.label :Autor %>
+      <%= f.text_field :autor %>
+    </p>
+
+    <p>
+      <%= f.submit 'Adicionar', :class => 'button' %>
+    </p>
+
+  <% end %>
+</div>
+
+<br>
+<%= link_to 'sair', logout_path %>

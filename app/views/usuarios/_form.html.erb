@@ -1,0 +1,39 @@
+<%= form_for @usuario do |f| %>
+
+  <% if @usuario.errors.any? %>
+
+    <div id= "mostra_erro">
+
+      <p>
+        <%= pluralize(@usuario.errors.count, "erro") %>
+      ao salvar:
+      </p>
+      <ul>
+        <% @usuario.errors.full_messages.each do |mensagem|%>
+          <li> <%= mensagem %> </li>
+        <%end%>
+      </ul>
+
+    </div>
+  <%end%>
+
+  <p>
+    <%= f.label 'Nome' %>
+    <%= f.text_field :nome %>
+  </p>
+
+  <p>
+    <%= f.label 'E-mail' %>
+    <%= f.text_field :email%>
+  </p>
+
+  <p>
+    <%= f.label 'Senha' %>
+    <%= f.text_field :senha %>
+  </p>
+
+  <p>
+    <%= f.submit 'Enviar' %>
+  </p>
+
+<%end%>

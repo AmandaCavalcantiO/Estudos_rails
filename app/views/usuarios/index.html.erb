@@ -1,0 +1,12 @@
+<% @usuario.each do |user| %>
+
+  <p>ID usuário: <%= user.id %></p>
+  <p>Nome:<%= user.nome%></p>
+  <p>E-mail: <%= user.email %></p>
+
+  <p>
+  <%= link_to 'Edit', edit_usuario_path(user) %>
+  <%= link_to 'Delete', usuario_path(user), method: :delete, data: { confirm: 'Você tem certeza?' } %>
+  </p> <br>
+
+<%end%>
