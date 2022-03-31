@@ -1,17 +1,16 @@
 <%= form_for ([@usuario, @livro]) do |f| %>
-  <h3> Editar livro </h3>
+  <h1> Editar livro </h1><br>
   <p>
     <%= f.label 'Titulo' %><br>
     <%= f.text_field :nome %>
   </p>
-
   <p>
     <%= f.label :Autor %><br>
     <%= f.text_field :autor %>
   </p>
-
+  <%= check_box_tag(:concluido)%>
+  <%= label_tag(:concluido, "Leitura concluída")%>
   <p>
     <%= f.submit 'Enviar' %>
   </p>
-
 <% end %>

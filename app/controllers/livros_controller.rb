@@ -1,12 +1,11 @@
 class LivrosController < ApplicationController
+  before_filter :set_usuario
+  before_filter :set_livro, except: [:new, :create]
 
- before_filter :set_livro, :set_usuario, except: [:new, :create]
   def new
-    @usuario = Usuario.find(params[:usuario_id])
   end
 
   def create
-    @usuario = Usuario.find(params[:usuario_id])
     @livro = @usuario.livros.create(livros_params)
     redirect_to usuario_path(@usuario)
   end
@@ -26,7 +25,7 @@ class LivrosController < ApplicationController
 
   private
     def livros_params
-      params.require(:livro).permit(:autor, :nome)
+      params.require(:livro).permit(:autor, :nome, :concluido)
     end
 
     def set_livro

@@ -1,6 +1,7 @@
 class UsuariosController < ApplicationController
-
   skip_before_action :usuario_logado, only:[:new, :create]
+  before_filter :set_usuario, except:[:new, :create]
+  
   def new
     @usuario = Usuario.new
   end
@@ -16,22 +17,17 @@ class UsuariosController < ApplicationController
   end
 
   def edit
-    @usuario = Usuario.find(params[:id])
   end
 
   def update
-    @usuario = Usuario.find(params[:id])
-
-    if @usuario.update(usuario_params) && current_user.present?
+    if @usuario.update(usuario_params)
       redirect_to @usuario
     else
-      redirect_to root_url
+      render 'edit'
     end
   end
 
-
   def show
-    @usuario = Usuario.find(params[:id])
   end
 
   def index
@@ -39,9 +35,7 @@ class UsuariosController < ApplicationController
   end
 
   def destroy
-    @usuario = Usuario.find(params[:id])
     @usuario.destroy
-
     redirect_to usuario_path
   end
 
@@ -50,4 +44,7 @@ class UsuariosController < ApplicationController
       params.require(:usuario).permit(:nome, :email, :senha)
     end
 
+    def set_usuario
+      @usuario = Usuario.find(params[:id])
+    end
 end
