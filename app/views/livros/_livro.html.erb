@@ -1,7 +1,11 @@
-<p> Título: <%= livro.nome %> </p>
-<p> Autor: <%= livro.autor %> </p>
-<p>
-  <%= link_to 'Editar', edit_usuario_livro_path(livro.id, usuario_id: livro.usuario_id) %>
-  <%= link_to 'Excluir', usuario_livro_path(livro.id, usuario_id: livro.usuario_id),
-      method: :delete,  data: { confirm: 'Você tem certeza?' } %>
-</p><br>
+<div id="livro">
+  <p> Título: <%= livro.nome %> </p>
+  <p> Autor: <%= livro.autor %> </p>
+  <p>
+    <%= link_to 'Show', usuario_livro_path(livro.id, usuario_id: livro.usuario_id) %>
+    <%= link_to 'Editar', edit_usuario_livro_path(livro.id, usuario_id: livro.usuario_id) %>
+    <%= link_to 'Excluir', usuario_livro_path(livro.id, usuario_id: livro.usuario_id),
+        method: :delete,  data:
+        { confirm: "Excluir #{livro.nome}?" } %>
+  </p><br>
+</div>

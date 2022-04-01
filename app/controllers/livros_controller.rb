@@ -1,4 +1,5 @@
 class LivrosController < ApplicationController
+
   before_filter :set_usuario
   before_filter :set_livro, except: [:new, :create]
 
@@ -7,7 +8,6 @@ class LivrosController < ApplicationController
 
   def create
     @livro = @usuario.livros.create(livros_params)
-    redirect_to usuario_path(@usuario)
   end
 
   def edit
@@ -18,8 +18,11 @@ class LivrosController < ApplicationController
     redirect_to @usuario
   end
 
+  def show
+  end
+
   def destroy
-    @livro.delete
+    @livro.destroy
     redirect_to @usuario
   end
 
@@ -33,6 +36,6 @@ class LivrosController < ApplicationController
     end
 
     def set_usuario
-      @usuario = Usuario.find(params[:usuario_id])
+      @usuario =  Usuario.find(params[:usuario_id])
     end
 end

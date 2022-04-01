@@ -1,7 +1,7 @@
 class UsuariosController < ApplicationController
   skip_before_action :usuario_logado, only:[:new, :create]
-  before_filter :set_usuario, except:[:new, :create]
-  
+  before_filter :set_usuario, except:[:new, :create, :index]
+
   def new
     @usuario = Usuario.new
   end

@@ -11,7 +11,8 @@
 
 <div class= "novo-livro">
   <p>Adicione um novo livro<p><br>
-  <%= form_for ([@usuario, @usuario.livros.create]) do |f| %>
+
+  <%= form_for([@usuario, @usuario.livros.create],remote: true ) do |f| %>
 
     <p>
       <%= f.label 'Titulo' %>
@@ -24,7 +25,7 @@
     </p>
 
     <p>
-      <%= f.submit 'Adicionar', :class => 'button' %>
+      <%= f.submit 'Adicionar'%>
     </p>
 
   <% end %>
