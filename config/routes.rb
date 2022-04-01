@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   root 'sessions#new'
 
   resources :usuarios do
-    resources :livros
+    resources :livros do
+      resources :comentarios
+    end
   end
+
+  post 'comentarios/exibe_comentario', action: :exibe_comentario, controller: 'comentarios', as: 'exibe_comentario'
 
   get 'login', to: 'sessions#new'
 

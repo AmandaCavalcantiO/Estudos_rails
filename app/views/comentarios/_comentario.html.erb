@@ -1,0 +1,11 @@
+<div class="comentario">
+  <p> Título: <%= comentario.titulo %> </p>
+  <p> Conteúdo: <%= comentario.conteudo %> </p>
+<p>
+  <%= link_to 'Editar', edit_usuario_livro_comentario_path(comentario.id, livro_id: comentario.livro_id, usuario_id: comentario.livro.usuario_id) %>
+
+  <%= link_to 'Excluir', usuario_livro_comentario_path(comentario.id, livro_id: comentario.livro_id, usuario_id: comentario.livro.usuario_id),
+      method: :delete,  data:
+      { confirm: "Excluir #{comentario.titulo}?" } %>
+</p><br>
+</div>

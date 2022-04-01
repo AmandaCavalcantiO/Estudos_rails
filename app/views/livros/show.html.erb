@@ -1,0 +1,24 @@
+<p> Título: <%= @livro.nome %> Autor: <%= @livro.autor %> </p>
+<form>
+  <input type="button" id= "buttonComentario" value ="Esconder comentários" onclick="mostrarComentario()">
+</form>
+
+<div id='lista-comentario'>
+  <%= render @livro.comentarios=%>
+</div>
+<div>
+  <%= form_for([@usuario, @livro, @livro.comentarios.build], :html=> {id:"form-comentario"}) do |f| %>
+  <p>
+    <%= f.label 'Titulo' %>
+    <%= f.text_field :titulo %>
+  </p>
+  <p>
+    <%= f.label 'Conteúdo' %>
+    <%= f.text_area:conteudo %>
+  </p>
+  <p>
+    <%= f.submit 'Adicionar'%>
+  </p>
+</div>
+<%end%>
+<%= link_to 'Voltar', usuario_path(@usuario)%>
