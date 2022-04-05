@@ -2,10 +2,10 @@
 <form>
   <input type="button" id= "buttonComentario" value ="Esconder comentários" onclick="mostrarComentario()">
 </form>
-
 <div id='lista-comentario'>
   <%= render @livro.comentarios=%>
 </div>
+
 <div>
   <%= form_for([@usuario, @livro, @livro.comentarios.build], :html=> {id:"form-comentario"}) do |f| %>
   <p>

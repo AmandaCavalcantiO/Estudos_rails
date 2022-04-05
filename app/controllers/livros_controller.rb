@@ -21,6 +21,9 @@ class LivrosController < ApplicationController
   def show
   end
 
+  def index
+  end
+
   def destroy
     @livro.destroy
     redirect_to @usuario
