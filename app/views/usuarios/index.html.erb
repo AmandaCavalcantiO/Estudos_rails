@@ -1,12 +1,16 @@
+<h1> Lista de Usuários </h1><br>
 <% @usuario.each do |user| %>
-
-  <p>ID usuário: <%= user.id %></p>
-  <p>Nome:<%= user.nome%></p>
-  <p>E-mail: <%= user.email %></p>
-
-  <p>
-  <%= link_to 'Edit', edit_usuario_path(user) %>
-  <%= link_to 'Delete', usuario_path(user), method: :delete, data: { confirm: 'Você tem certeza?' } %>
-  </p> <br>
-
+<div class = "usuario">
+    <p>ID usuário: <%= user.id %></p>
+    <p>Nome:<%= user.nome%></p>
+    <p>E-mail: <%= user.email %></p>
+    <p>
+    <%= link_to 'Edit', edit_usuario_path(user) %>
+    <%= link_to 'Delete', usuario_path(user),
+        method: :delete, data: { confirm: 'Você tem certeza?' } %>
+    </p> <br>
+</div>
 <%end%>
+<%= link_to 'Anterior', usuarios_path(pagina: @pagina - 1) unless (@pagina == 0)%> |
+<%=@pagina%> |
+<%= link_to 'Próxima', usuarios_path(pagina: @pagina + 1) unless (@pagina >= (@total_paginas -1))%>

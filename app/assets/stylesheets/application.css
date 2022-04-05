@@ -68,13 +68,20 @@ h2{
   border-top: 1px solid;
   border-color: #c8c8c8;
 }
-.comentario{
+.comentario, .livro{
   padding: 5px;
   margin: 5px;
   background-color: rgba(158,158,158,0.2);
   text-align: left;
 }
-
+.botoes{
+  padding: 5px;
+  text-align: left;
+}
+.botoes-pagina{
+  padding: 5px;
+  text-align: center;
+}
 /*.button{
   padding: 8px 48px;
   border-radius: 8px;

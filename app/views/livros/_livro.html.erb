@@ -1,6 +1,11 @@
-<div id="livro">
+<div class ="livro">
   <p> Título: <%= livro.nome %> </p>
   <p> Autor: <%= livro.autor %> </p>
+  <% if (livro.concluido == true)%>
+    <p> Status: Concluído </p>
+  <%else%>
+    <p> Status: Pendente </p>
+  <%end%>
   <p>
     <%= link_to 'Show', usuario_livro_path(livro.id, usuario_id: livro.usuario_id) %>
     <%= link_to 'Editar', edit_usuario_livro_path(livro.id, usuario_id: livro.usuario_id) %>

@@ -8,8 +8,8 @@
     <%= f.label :Autor %><br>
     <%= f.text_field :autor %>
   </p>
-  <%= check_box_tag(:concluido)%>
-  <%= label_tag(:concluido, "Leitura concluída")%>
+  <%= f.check_box(:concluido) %>
+  <%= f.label(:concluido, "Leitura concluída")%>
   <p>
     <%= f.submit 'Enviar' %>
   </p>
