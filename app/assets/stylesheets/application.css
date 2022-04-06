@@ -20,13 +20,19 @@ body{
   border-color: #f8cfcf;s
 }
 
+.listagem-livros{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .container{
+
   padding: 50px;
   padding-top: 50px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
-  width: 50%;
+  width: 75%;
   height: 100%;
   min-height: 500px;
   background-color: white;
@@ -73,14 +79,24 @@ h2{
   margin: 5px;
   background-color: rgba(158,158,158,0.2);
   text-align: left;
+  box-shadow: 0px 6px 5px 0px rgba(158,158,158,0.4);
+}
+
+.livro{
+  width: 30%;
+  text-align: center;
 }
 .botoes{
   padding: 5px;
   text-align: left;
 }
 .botoes-pagina{
+  text
   padding: 5px;
   text-align: center;
+}
+.imagem-capa-livro{
+  max-width: 200px;
 }
 /*.button{
   padding: 8px 48px;

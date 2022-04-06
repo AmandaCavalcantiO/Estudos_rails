@@ -2,11 +2,13 @@
 <h2>Perfil de: <%= @usuario.nome%></h2>
 <%= link_to 'Editar perfil', edit_usuario_path %>
 </div>
-<div class= "listagem-livros">
+<div>
   <h2 >Lista de Leituras</h2><br>
-<%= link_to "Todos", usuario_path(filtro: nil)%>
-<%= link_to "Concluídos", usuario_path(filtro: 'concluido')%>
-<%= link_to "Pendentes", usuario_path(filtro: 'pendente')%>
+  <%= link_to "Todos", usuario_path(filtro: nil)%>
+  <%= link_to "Concluídos", usuario_path(filtro: 'concluido')%>
+  <%= link_to "Pendentes", usuario_path(filtro: 'pendente')%>
+</div>
+<div class= "listagem-livros">
 <% @livros.each do |livro| %>
   <%= render 'livros/livro', livro: livro %>
 <% end %>
@@ -17,13 +19,13 @@
 
 <div class= "botoes-pagina">
   <%= link_to 'Anterior', usuario_path(pagina: @pagina - 1, filtro: params[:filtro])  unless (@pagina == 1)%> | <%=@pagina%> |
-  <%= link_to 'Próxima', usuario_path(pagina: @pagina + 1, filtro: params[:filtro]) unless (@pagina >= @total_paginas)%>
-</div>
-
+  <%= link_to 'Próxima', usuario_path(pagina: @pagina + 1, filtro: params[:filtro]) unless (@pagina >= @total_paginas)%> <br><br>
+  <%= link_to 'Primeira', usuario_path(pagina: 1, filtro: params[:filtro])unless @pagina == 1 %> |
+  <%= link_to 'Ultima', usuario_path(pagina: @total_paginas, filtro: params[:filtro])unless @pagina == @total_paginas %>
 <div class= "novo-livro">
   <p>Adicione um novo livro<p><br>
 
-  <%= form_for([@usuario, @usuario.livros.create], remote: true ) do |f| %>
+  <%= form_for([@usuario, @usuario.livros.build], remote: true ) do |f| %>
 
     <p>
       <%= f.label 'Titulo' %>
@@ -34,7 +36,14 @@
       <%= f.label :Autor %>
       <%= f.text_field :autor %>
     </p>
-
+    <p>
+      <%= f.label 'Selecione uma imagem'%>
+      <%= f.file_field :imagem%>
+    </p>
+    <p>
+      <%= f.check_box(:concluido) %>
+      <%= f.label(:concluido, "Leitura concluída")%>
+    </p>
     <p>
       <%= f.submit 'Adicionar'%>
     </p>

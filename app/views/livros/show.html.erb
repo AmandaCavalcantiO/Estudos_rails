@@ -1,4 +1,5 @@
 <p> Título: <%= @livro.nome %> Autor: <%= @livro.autor %> </p>
+<%= image_tag @livro.imagem class: 'imagem -livro' %>
 <form>
   <input type="button" id= "buttonComentario" value ="Esconder comentários" onclick="mostrarComentario()">
 </form>
