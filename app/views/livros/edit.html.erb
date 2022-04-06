@@ -8,8 +8,14 @@
     <%= f.label :Autor %><br>
     <%= f.text_field :autor %>
   </p>
-  <%= f.check_box(:concluido) %>
-  <%= f.label(:concluido, "Leitura concluída")%>
+  <p>
+    <%= f.label 'Selecione uma imagem'%>
+    <%= f.file_field :imagem %>
+  </p>
+  <p>
+    <%= f.check_box(:concluido) %>
+    <%= f.label(:concluido, "Leitura concluída")%>
+  </p>
   <p>
     <%= f.submit 'Enviar' %>
   </p>
